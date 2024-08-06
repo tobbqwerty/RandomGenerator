@@ -26,9 +26,24 @@
     padding: 0 50px;
 }
 
+.navbar__menu {
+   list-style-type: none;
+   padding-top: 33px;
+   padding-right: 10px;
+   display: flex;
+
+}
+
+.navbar__link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #4290da
+
+}
+
 #navbar__logo {
     background-color: #ff8177;
-    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-image: linear-gradient(to top, #08ffc9 0%, #3026c0 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
