@@ -159,8 +159,8 @@ section {
 .loba-img {
   width: auto;
   height: 570px;
-  margin-top: 200px;
-  margin-right: 400px;
+  margin-top: 100px;
+  margin-right: 500px;
   position: sticky;
   animation: pulse 4s infinite;
 }
