@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LoL - Random Generator</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="lol-site">
+      <button id="generate-button">Generate</button>
+      <ul id="generate-word"></ul>
+    </div>
+    <div class="form-container">
+      <h1>Add Players</h1>
+      <form id="playerForm">
+        <div class="input-container">
+          <div class="player-input">
+            <ul id="playerList">
+              <li class="player-item">
+                <i class="bx bxs-user"></i>
+                <input
+                  type="text"
+                  name="player1"
+                  placeholder="Player 1"
+                  required
+                />
+              </li>
+            </ul>
+            <!-- Buttons for adding and removing players -->
+            <button type="button" id="addPlayer" class="add-player">+</button>
+            <button type="button" class="remove-player">−</button>
+          </div>
+        </div>
+      </form>
+      <div class="button-container"></div>
+    </div>
+    <script src="/js/script.js"></script>
+    <script id="replace_with_navbar" src="/js/nav.js"></script>
+  </body>
+</html>
