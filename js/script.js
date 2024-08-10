@@ -190,22 +190,45 @@ const lolChampions = [
   "Zoe",
   "Zyra",
 ];
-let playerCount = 1;
-const maxPlayers = 5;
+let playerCount = 0;
+let maxPlayers;
 const playerList = document.getElementById("playerList");
+const url = window.location.href;
 
-document.getElementById("addPlayer").addEventListener("click", addPlayer);
-document
-  .querySelector(".remove-player")
-  .addEventListener("click", removePlayer);
+addPlayer();
+
+document.getElementById("addPlayer").addEventListener("click", () => {
+  addPlayer();
+});
+
+document.querySelector(".remove-player").addEventListener("click", () => {
+  removePlayer();
+});
+
+function generateRandomChampions(championList, count) {
+  const selectedChampions = new Set();
+
+  while (selectedChampions.size < count) {
+    const randomIndex = Math.floor(Math.random() * championList.length);
+    selectedChampions.add(championList[randomIndex]);
+  }
+  return Array.from(selectedChampions);
+}
 
 function addPlayer() {
+
+  if (url.includes("lol")) {
+    maxPlayers = 5;
+  } else if (url.includes("apex")) {
+    maxPlayers = 3;
+  }
+
   if (playerCount < maxPlayers) {
     playerCount++;
 
     // Create a new list item element
     const newPlayerLi = document.createElement("li");
-    newPlayerLi.className = "player-item"; // Optional: add a class for styling
+    newPlayerLi.className = "player-item";
 
     // Create the new icon element
     const newIcon = document.createElement("i");
@@ -218,7 +241,7 @@ function addPlayer() {
     newInput.placeholder = `Player ${playerCount}`;
     newInput.required = true;
 
-    // Append the icon and input element to the list item
+    // Append the icon, input element, and lock button to the list item
     newPlayerLi.appendChild(newIcon);
     newPlayerLi.appendChild(newInput);
 
@@ -234,46 +257,45 @@ function removePlayer() {
   }
 }
 
-function generateRandomChampions(wordList) {
-  const selectedWords = new Set();
+function assignChampionsToPlayers(championList) {
+  const playerItems = document.querySelectorAll(".player-item");
 
-  const randomIndex = Math.floor(Math.random() * wordList.length);
-  selectedWords.add(wordList[randomIndex]);
-  return Array.from(selectedWords);
-}
+  const champions = generateRandomChampions(championList, playerItems.length);
 
-// APEX
-function displayChampions() {
-  const randomWords = generateRandomChampions(apexChampions);
-  const championList = document.getElementById("generate-word");
+  playerItems.forEach((playerItem, index) => {
+    const input = playerItem.querySelector("input");
 
-  championList.innerHTML = "";
+    // Skip locked inputs
+    if (input.disabled) return;
 
-  randomWords.forEach((word) => {
-    const li = document.createElement("li");
-    li.textContent = word;
-    championList.appendChild(li);
+    // Check if the champion display span already exists
+    let championDisplay = playerItem.querySelector(".champion-display");
+    if (!championDisplay) {
+      // Create the champion display span if it doesn't exist
+      championDisplay = document.createElement("span");
+      championDisplay.className = "champion-display";
+      playerItem.appendChild(championDisplay);
+    }
+
+    // Update the text content of the champion display
+    championDisplay.textContent = ` is playing ${champions[index]}`;
   });
 }
 
-// LOL
-function displayLolChar() {
-  const randomWords = generateRandomChampions(lolChampions);
-  const championList = document.getElementById("generate-word");
-
-  championList.innerHTML = "";
-
-  randomWords.forEach((word) => {
-    const li = document.createElement("li");
-    li.textContent = word;
-    championList.appendChild(li);
-  });
-}
 
 document.getElementById("generate-button").addEventListener("click", () => {
   if (url.includes("apex")) {
-    displayChampions(apexChampions);
+    assignChampionsToPlayers(apexChampions);
   } else if (url.includes("lol")) {
-    displayLolChar(lolChampions);
+    assignChampionsToPlayers(lolChampions);
   }
 });
+
+
+let menu = document.querySelector("#menu-icon");
+let navlist = document.querySelector(".navlist");
+
+menu.onclick = () => {
+  menu.classList.toggle("bx-x");
+  navlist.classList.toggle("bx-x");
+};

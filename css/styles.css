@@ -18,6 +18,7 @@ body {
   );
 }
 
+
 /* Navigation stuff */
 
 header {
@@ -96,22 +97,112 @@ section {
 }
 
 .zed-img {
-  width: 500px;
+  width: 570px;
   height: auto;
   transform: rotate(13deg);
+  animation: pulseAndRotate 4s infinite;
 }
 
 /* Player Input */
-input {
-  margin-top: 10px;
-  border-radius: 5px;
-  border: 2px solid #f0ffff;
-  transition: 0.2s ease;
+
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
 }
 
-.input-container .input-box {
-  background: red;
-  margin: 20px;
+.form-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 200px;
+  height: 100%;
+}
+
+.champion-display {
+ width: 200px;
+}
+
+
+#playerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
+}
+
+#generate-button {
+  align-self: flex-start;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#generate-button:hover {
+  background-color: #e67e22;
+}
+
+.apex-img {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 200px;
+}
+
+.loba-img {
+  width: auto;
+  height: 570px;
+  margin-top: 200px;
+  margin-right: 400px;
+  position: sticky;
+  animation: pulse 4s infinite;
+}
+
+
+.player-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.player-item input {
+
+  width: 200px;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.player-input {
+  color: white;
+}
+
+.player-input i {
+  color: gold;
+  margin-right: 12px;
+}
+
+input {
+  background: transparent;
+  border-radius: 20px;
+  text-indent: 0.3cm;
+  color: white;
+  height: 30px;
+}
+
+.add-player, .remove-player {
+border-radius: 5px;
+width: 20px;
+}
+
+#generate-button {
+  margin-left: 67px;
 }
 
 /* Media */
@@ -167,7 +258,8 @@ input {
   }
 }
 
-@media (max-width: 990px) {
+
+/*@media (max-width: 990px) {
   #menu-icon {
     display: block;
   }
@@ -194,11 +286,42 @@ input {
   .navlist.open {
     right: 0;
   }
-}
+} */
+
 
 @media (max-width: 680px) {
   .zed-img img {
     width: 100%;
     height: auto;
+  }
+}
+
+/* Animation */
+
+@keyframes pulseAndRotate {
+  0% {
+    transform: rotate(13deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(13.02deg) scale(1.01);
+  }
+
+  100% {
+    transform: rotate(13deg) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.01);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

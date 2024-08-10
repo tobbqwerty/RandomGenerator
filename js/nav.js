@@ -6,11 +6,3 @@ fetch("/templates/navbar.html")
     newelem.innerHTML = text;
     oldelem.parentNode.replaceChild(newelem, oldelem);
   });
-
-let menu = document.querySelector("#menu-icon");
-let navlist = document.querySelector(".navlist");
-
-menu.onclick = () => {
-  menu.classList.toggle("bx-x");
-  navlist.classList.toggle("bx-x");
-};
