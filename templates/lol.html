@@ -8,19 +8,26 @@
   </head>
   <body>
     <div class="form-container">
-      <h1>Add Players</h1>
-      <form id="playerForm">
-        <div class="input-container">
-          <div class="player-input">
-            <ul id="playerList"></ul>
-            <!-- Buttons for adding and removing players -->
-            <button type="button" id="addPlayer" class="add-player">+</button>
-            <button type="button" class="remove-player">−</button>
+      <div class="form-content">
+        <form id="playerForm">
+          <div class="input-container">
+            <div class="player-input">
+              <ul id="playerList">
+                <li></li>
+              </ul>
+
+              <button type="button" id="addPlayer" class="add-player">+</button>
+              <button type="button" class="remove-player">−</button>
+            </div>
           </div>
-        </div>
-      </form>
-      <button id="generate-button">Generate</button>
+        </form>
+
+        <button id="generate-button">RANDOMIZE!</button>
+      </div>
       <ul id="generate-word"></ul>
+      <div class="apex-img">
+        <img class="char-img" src="/images/katarina.png" alt="loba" />
+      </div>
     </div>
 
     <script src="/js/script.js"></script>
