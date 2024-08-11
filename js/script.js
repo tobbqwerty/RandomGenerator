@@ -24,6 +24,7 @@ const apexChampions = [
   "Catalyst",
   "Ballistic",
   "Conduit",
+  "Alter",
 ];
 
 const lolChampions = [
@@ -216,7 +217,6 @@ function generateRandomChampions(championList, count) {
 }
 
 function addPlayer() {
-
   if (url.includes("lol")) {
     maxPlayers = 5;
   } else if (url.includes("apex")) {
@@ -282,7 +282,6 @@ function assignChampionsToPlayers(championList) {
   });
 }
 
-
 document.getElementById("generate-button").addEventListener("click", () => {
   if (url.includes("apex")) {
     assignChampionsToPlayers(apexChampions);
@@ -290,7 +289,6 @@ document.getElementById("generate-button").addEventListener("click", () => {
     assignChampionsToPlayers(lolChampions);
   }
 });
-
 
 let menu = document.querySelector("#menu-icon");
 let navlist = document.querySelector(".navlist");
