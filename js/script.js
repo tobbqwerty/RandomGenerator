@@ -226,34 +226,26 @@ function addPlayer() {
   if (playerCount < maxPlayers) {
     playerCount++;
 
-    // Create a new list item element
     const newPlayerLi = document.createElement("li");
     newPlayerLi.className = "player-item";
 
-    // Create the new icon element
     const newIcon = document.createElement("i");
     newIcon.className = "bx bxs-user";
 
-    // Create the new input element
     const newInput = document.createElement("input");
     newInput.type = "text";
     newInput.name = `player${playerCount}`;
     newInput.placeholder = `Player ${playerCount}`;
-    newInput.required = true;
 
-    // Append the icon, input element, and lock button to the list item
     newPlayerLi.appendChild(newIcon);
     newPlayerLi.appendChild(newInput);
-
-    // Add the new list item to the player list
     playerList.appendChild(newPlayerLi);
   }
 }
 
 function removePlayer() {
   if (playerCount > 1) {
-    playerList.removeChild(playerList.lastChild); // Remove the last added player input
-    playerCount--;
+    playerList.removeChild(playerList.lastChild);
   }
 }
 
@@ -263,21 +255,12 @@ function assignChampionsToPlayers(championList) {
   const champions = generateRandomChampions(championList, playerItems.length);
 
   playerItems.forEach((playerItem, index) => {
-    const input = playerItem.querySelector("input");
-
-    // Skip locked inputs
-    if (input.disabled) return;
-
-    // Check if the champion display span already exists
     let championDisplay = playerItem.querySelector(".champion-display");
     if (!championDisplay) {
-      // Create the champion display span if it doesn't exist
       championDisplay = document.createElement("span");
       championDisplay.className = "champion-display";
       playerItem.appendChild(championDisplay);
     }
-
-    // Update the text content of the champion display
     championDisplay.textContent = ` is playing ${champions[index]}`;
   });
 }

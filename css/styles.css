@@ -184,8 +184,9 @@ section {
 }
 
 .player-item input {
-  width: 200px;
+  width: 125px;
   padding: 5px;
+  margin-left: 2px;
   margin-right: 10px;
 }
 
@@ -212,7 +213,7 @@ input {
 }
 
 .add-player {
-  margin-left: 105px;
+  margin-left: 65px;
 }
 .add-player,
 .remove-player {
@@ -223,7 +224,7 @@ input {
 }
 
 #generate-button {
-  margin-left: 65px;
+  margin-left: 28px;
 }
 
 /* Media */
