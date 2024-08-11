@@ -246,6 +246,7 @@ function addPlayer() {
 function removePlayer() {
   if (playerCount > 1) {
     playerList.removeChild(playerList.lastChild);
+    playerCount--;
   }
 }
 
