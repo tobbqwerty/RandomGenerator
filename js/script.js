@@ -196,7 +196,17 @@ let maxPlayers;
 const playerList = document.getElementById("playerList");
 const url = window.location.href;
 
-addPlayer();
+
+if (url.includes("apex")) {
+  for (let i = 0; i < 3; i++) {
+    addPlayer();
+  }
+} else if (url.includes("lol")) {
+  for (let i = 0; i < 5; i++) {
+    addPlayer();
+  } 
+}
+
 
 document.getElementById("addPlayer").addEventListener("click", () => {
   addPlayer();
