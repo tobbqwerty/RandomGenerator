@@ -123,6 +123,7 @@ section {
   display: flex;
   justify-content: center;
   margin-top: 110px;
+  margin-left: 33px;
 
 }
 
@@ -184,13 +185,10 @@ section {
   align-items: center;
   margin-bottom: 10px;
   width: 330px;
-
-  
 }
 
 
 .input-container {
-
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -208,13 +206,15 @@ section {
 
 .champion-image {
   display: inline;
-  height: 500px;
+  height: 450px;
   width: auto;
+  max-width: 350px;
   animation: pulse 7s infinite;
 }
 
 #playerList {
   display: flex;
+  gap: 40px;
 }
 
 .player-input {
@@ -241,6 +241,7 @@ input {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-left: 33px;
 }
 
 .add-player {
