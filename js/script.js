@@ -194,14 +194,14 @@ const lolChampions = [
 let playerCount = 0;
 let maxPlayers;
 const playerList = document.getElementById("playerList");
-const url = window.location.href;
+const currentUrl = window.location.href;
 
 
-if (url.includes("apex")) {
+if (currentUrl.includes("apex")) {
   for (let i = 0; i < 3; i++) {
     addPlayer();
   }
-} else if (url.includes("lol")) {
+} else if (currentUrl.includes("lol")) {
   for (let i = 0; i < 5; i++) {
     addPlayer();
   } 
@@ -227,9 +227,9 @@ function generateRandomChampions(championList, count) {
 }
 
 function addPlayer() {
-  if (url.includes("lol")) {
+  if (currentUrl.includes("lol")) {
     maxPlayers = 5;
-  } else if (url.includes("apex")) {
+  } else if (currentUrl.includes("apex")) {
     maxPlayers = 3;
   }
 
@@ -260,26 +260,72 @@ function removePlayer() {
   }
 }
 
+function displayImage(champion, playerItem) {
+  const imagesPath = '/images';
+  const subFolderApex = '/apex';
+  const subFolderLol = '/lol';
+
+  const imageFileName = `${champion.toLowerCase()}.png`;
+  
+  const imageApexPath = `${imagesPath}/${subFolderApex}/${imageFileName}`;
+  const imageLolPath = `${imagesPath}/${subFolderLol}/${imageFileName}`;
+
+  let championImage = playerItem.querySelector(".champion-image");
+  if (!championImage) {
+
+    championImage = document.createElement("img");
+    championImage.className = "champion-image";
+    playerItem.appendChild(championImage);
+  }
+  if (currentUrl.includes("apex")) {
+    championImage.src = imageApexPath;
+  } else if (currentUrl.includes("lol")) {
+    championImage.src = imageLolPath;
+  }
+  championImage.alt = `${champion} image`;
+
+}
+
 function assignChampionsToPlayers(championList) {
   const playerItems = document.querySelectorAll(".player-item");
 
   const champions = generateRandomChampions(championList, playerItems.length);
 
   playerItems.forEach((playerItem, index) => {
-    let championDisplay = playerItem.querySelector(".champion-display");
-    if (!championDisplay) {
-      championDisplay = document.createElement("span");
+    let container = playerItem.querySelector(".display-container");
+    
+    if (!container) {
+      container = document.createElement("div");
+      container.className = "display-container";
+      playerItem.appendChild(container);
+
+      let championDisplay = document.createElement("div");
       championDisplay.className = "champion-display";
-      playerItem.appendChild(championDisplay);
+      container.appendChild(championDisplay);
+
+      let imageElement = document.createElement("img");
+      imageElement.className = "champion-image";
+      container.appendChild(imageElement);
     }
-    championDisplay.textContent = ` is playing ${champions[index]}`;
+
+    let championDisplay = container.querySelector(".champion-display");
+    championDisplay.textContent = `${champions[index]}`;
+    displayImage(champions[index], container);
   });
 }
 
+function reset (championList) {
+  document.getElementById("reset-button").addEventListener("click", () => {
+    assignChampionsToPlayers(removeChild(championList.lastChild));
+  });
+}
+
+
+
 document.getElementById("generate-button").addEventListener("click", () => {
-  if (url.includes("apex")) {
+  if (currentUrl.includes("apex")) {
     assignChampionsToPlayers(apexChampions);
-  } else if (url.includes("lol")) {
+  } else if (currentUrl.includes("lol")) {
     assignChampionsToPlayers(lolChampions);
   }
 });

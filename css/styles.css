@@ -10,6 +10,7 @@
 }
 
 body {
+  width: 100%;
   background: radial-gradient(
     circle,
     rgba(103, 25, 46, 1) 0%,
@@ -31,6 +32,7 @@ header {
   justify-content: space-between;
   padding: 33px 9%;
   background: transparent;
+ 
 }
 
 .navlist {
@@ -109,38 +111,27 @@ section {
 
 /* Player Input */
 
-.form-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-}
-
-.form-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 200px;
-  height: 100%;
-}
-
 .champion-display {
-  width: 200px;
+  text-align: center;
+  text-shadow:
+  0px 3px 0 #000;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-#playerForm {
+.randomize-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  flex-grow: 1;
+  margin-top: 110px;
+
 }
 
 #generate-button {
   align-self: flex-start;
   margin-top: 20px;
+  justify-content: center;
   padding: 10px 20px;
-  background-color: #f39c12;
+  background-color: goldenrod;
   border: none;
   color: white;
   border-radius: 5px;
@@ -176,59 +167,115 @@ section {
   animation: pulse 4s infinite;
 }
 
-.player-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+#player-form {
 }
 
-.player-item input {
-  width: 125px;
-  padding: 5px;
-  margin-left: 2px;
-  margin-right: 10px;
+.player-list {
+  width: 100%;;
+}
+
+
+.player-item {
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 330px;
+  
+}
+
+
+.input-container {
+
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.display-container {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ margin-top: 30px;
+
+}
+
+.champion-image {
+  display: inline;
+  height: 500px;
+  width: auto;
+  animation: pulse 7s infinite;
 }
 
 #playerList {
-  margin-top: 300px;
-  position: sticky;
+  display: flex;
 }
 
 .player-input {
+  display: flex;
   color: white;
 }
 
 .player-input i {
-  color: gold;
-  margin-right: 12px;
+  margin-bottom: 10px;
+  color: rgb(245, 245, 245);
+  margin-right: 5px;
 }
 
 input {
   background: transparent;
   border-radius: 20px;
-  text-indent: 0.3cm;
+  text-align: center;
   color: white;
   height: 30px;
 }
 
-.add-player {
-  margin-left: 65px;
+.add-remove-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
+
+.add-player {
+  color: rgb(20, 146, 20);
+}
+
+#removePlayer {
+  color: rgb(143, 23, 23);
+  
+}
+
 .add-player,
 .remove-player {
   margin-top: 10px;
-  border-radius: 5px;
-  width: 20px;
   cursor: pointer;
+  width: 20px;
+  border-radius: 10px;
+  background: white;
 }
 
-#generate-button {
-  margin-left: 28px;
-}
+
 
 /* Media */
 
-@media (max-widht: 1535px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 990px) {
+
+}
+
+@media (max-width: 1339px) {
+  .char-img {
+    width: 1440px;
+    height: 2000px;
+  }
+
+}
+
+
+@media (max-width: 1535px) {
   header {
     padding: 15px 3%;
     transition: 0.2s;

@@ -11,31 +11,22 @@
     />
   </head>
   <body>
-    <div class="form-container">
-      <div class="form-content">
-        <form id="playerForm">
-          <div class="input-container">
-            <div class="player-input">
-              <ul id="playerList">
-                <li></li>
-              </ul>
-
-              <button type="button" id="addPlayer" class="add-player">+</button>
-              <button type="button" id="removePlayer" class="remove-player">
-                −
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <button id="generate-button">RANDOMIZE!</button>
-      </div>
+    <div class="randomize-container">
+      <button id="generate-button">RANDOMIZE!</button>
       <ul id="generate-word"></ul>
-      <div class="apex-img">
-        <img class="char-img" src="/images/loba.png" alt="loba" />
+    </div>
+    <button id="reset-button">reset</button>
+    <div class="add-remove-container">
+      <button type="button" id="addPlayer" class="add-player">+</button>
+      <button type="button" id="removePlayer" class="remove-player">-</button>
+    </div>
+    <div class="input-container">
+      <div class="player-input">
+        <ul id="playerList">
+          <li></li>
+        </ul>
       </div>
     </div>
-
     <script src="/js/script.js"></script>
     <script id="replace_with_navbar" src="/js/nav.js"></script>
   </body>
