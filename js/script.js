@@ -239,15 +239,15 @@ function addPlayer() {
     const newPlayerLi = document.createElement("li");
     newPlayerLi.className = "player-item";
 
-    const newIcon = document.createElement("i");
-    newIcon.className = "bx bxs-user";
+   // const newIcon = document.createElement("i");
+    //newIcon.className = "bx bxs-user";
 
     const newInput = document.createElement("input");
     newInput.type = "text";
     newInput.name = `player${playerCount}`;
     newInput.placeholder = `Player ${playerCount}`;
 
-    newPlayerLi.appendChild(newIcon);
+   // newPlayerLi.appendChild(newIcon);
     newPlayerLi.appendChild(newInput);
     playerList.appendChild(newPlayerLi);
   }
@@ -314,14 +314,6 @@ function assignChampionsToPlayers(championList) {
   });
 }
 
-function reset (championList) {
-  document.getElementById("reset-button").addEventListener("click", () => {
-    assignChampionsToPlayers(removeChild(championList.lastChild));
-  });
-}
-
-
-
 document.getElementById("generate-button").addEventListener("click", () => {
   if (currentUrl.includes("apex")) {
     assignChampionsToPlayers(apexChampions);
@@ -329,6 +321,7 @@ document.getElementById("generate-button").addEventListener("click", () => {
     assignChampionsToPlayers(lolChampions);
   }
 });
+
 
 let menu = document.querySelector("#menu-icon");
 let navlist = document.querySelector(".navlist");

@@ -42,7 +42,7 @@ header {
 .navlist a {
   color: white;
   margin-left: 60px;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 600;
   border-bottom: 2px solid transparent;
   transition: all 0.55s ease;
@@ -53,7 +53,7 @@ header {
 }
 
 .logo {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 700;
   color: white;
 }
@@ -136,6 +136,7 @@ section {
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 #generate-button:hover {
@@ -172,6 +173,7 @@ section {
 
 .player-list {
   width: 100%;;
+  background: black;
 }
 
 
@@ -182,6 +184,7 @@ section {
   align-items: center;
   margin-bottom: 10px;
   width: 330px;
+
   
 }
 
@@ -241,23 +244,36 @@ input {
 }
 
 .add-player {
-  color: rgb(20, 146, 20);
+  color: black;
+  background: white;
+  font-size: 18px;
 }
 
-#removePlayer {
-  color: rgb(143, 23, 23);
+.add-player:hover {
+  background: rgb(234, 233, 233);
+  color: rgb(25, 178, 25);
+}
+
+.remove-player {
+  color: black;
+  background: white;
+  font-size: 18px;
   
+}
+
+.remove-player:hover {
+  background: rgb(234, 233, 233);
+  color: rgb(181, 26, 26);
 }
 
 .add-player,
 .remove-player {
   margin-top: 10px;
   cursor: pointer;
-  width: 20px;
-  border-radius: 10px;
+  width: 25px;
+  border-radius: 50%;
   background: white;
 }
-
 
 
 /* Media */
