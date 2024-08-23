@@ -276,7 +276,22 @@ input {
   background: white;
 }
 
+.customize-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin-right: 40px;
+  margin-bottom: 10px;
+  color: white;
+}
 
+#shotcaller-toggle {
+  
+}
+
+label {
+  font-weight: 600;
+}
 /* Media */
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 990px) {
