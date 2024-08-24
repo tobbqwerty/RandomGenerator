@@ -200,7 +200,6 @@ const currentUrl = window.location.href;
 const isApexPage = currentUrl.includes("apex");
 const isLolPage = currentUrl.includes("lol");
 
-
 if (isApexPage) {
   for (let i = 0; i < 3; i++) {
     addPlayer();
@@ -208,9 +207,8 @@ if (isApexPage) {
 } else if (isLolPage) {
   for (let i = 0; i < 5; i++) {
     addPlayer();
-  } 
+  }
 }
-
 
 document.getElementById("addPlayer").addEventListener("click", () => {
   addPlayer();
@@ -270,14 +268,13 @@ function removePlayer() {
   }
 }
 
-
 function displayImage(champion, playerItem) {
-  const imagesPath = '/images';
-  const subFolderApex = '/apex';
-  const subFolderLol = '/lol';
+  const imagesPath = "/images";
+  const subFolderApex = "/apex";
+  const subFolderLol = "/lol";
 
   const imageFileName = `${champion.toLowerCase()}.png`;
-  
+
   const imageApexPath = `${imagesPath}/${subFolderApex}/${imageFileName}`;
   const imageLolPath = `${imagesPath}/${subFolderLol}/${imageFileName}`;
 
@@ -298,10 +295,10 @@ function displayImage(champion, playerItem) {
 function assignChampionsToPlayers(championList) {
   const playerItems = document.querySelectorAll(".player-item");
   const champions = generateRandomChampions(championList, playerItems.length);
-  
+
   playerItems.forEach((playerItem, index) => {
     let container = playerItem.querySelector(".display-container");
-    
+
     if (!container) {
       container = document.createElement("div");
       container.className = "display-container";
@@ -322,15 +319,17 @@ function assignChampionsToPlayers(championList) {
   });
 
   if (isApexPage) {
-    const shotcallerEnabled = document.getElementById("shotcaller-toggle").checked;
+    const shotcallerEnabled =
+      document.getElementById("shotcaller-toggle").checked;
     if (shotcallerEnabled) {
       const shotcallers = getShotcaller(Array.from(playerItems), 1)[0];
       playerItems.forEach((playerItem) => {
         let container = playerItem.querySelector(".display-container");
         let shotcallerElement = container.querySelector(".shotcaller");
-        
+
         if (playerItem === shotcallers) {
           if (!shotcallerElement) {
+            wrapperElement = document.createElement("div");
             shotcallerElement = document.createElement("div");
             shotcallerElement.className = "shotcaller";
             container.appendChild(shotcallerElement);
@@ -351,7 +350,6 @@ document.getElementById("generate-button").addEventListener("click", () => {
     assignChampionsToPlayers(lolChampions);
   }
 });
-
 
 let menu = document.querySelector("#menu-icon");
 let navlist = document.querySelector(".navlist");
